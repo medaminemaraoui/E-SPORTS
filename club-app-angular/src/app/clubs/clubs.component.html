@@ -1,0 +1,48 @@
+
+<div class="p-5"></div>
+
+
+<div class="container" *ngIf="authService.roles.includes('ADMIN')">
+  <table class="table" *ngIf="clubs">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Ville</th>
+      <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of clubs">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.ville}}</td>
+      <td><button class="btn btn-success" (click)="getTerrains(c)">List Terrain</button></td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<ng-container *ngFor="let c of clubs; let index = index">
+  <div *ngIf="authService.roles.includes('USER')"
+       class="club-card"
+       [ngClass]="{
+          'bg-club-1': index % 4 === 0,
+          'bg-club-2': index % 4 === 1,
+          'bg-club-3': index % 4 === 2,
+          'bg-club-4': index % 4 === 3,
+       }">
+    <div class="club-overlay">
+      <div class="container p-5 my-5 text-white">
+        <h1>{{c.name}}</h1>
+        <p>{{c.ville}}</p>
+        <button class="btn btn-primary" (click)="getTerrains(c)">List de Terrain</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+

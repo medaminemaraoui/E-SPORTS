@@ -1,0 +1,19 @@
+.drawer-container {
+  height: 100vh; /* Full height */
+}
+
+.custom-drawer {
+  width: 200px; /* Increased drawer width */
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+.drawer-top-space {
+  height: 60px; /* Empty space at the top */
+}
+
+.content-area {
+  padding: 20px;
+  height: 100vh;
+  overflow: auto;
+}

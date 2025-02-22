@@ -1,0 +1,78 @@
+/* Container */
+.container {
+  padding: 20px;
+}
+
+/* Styled Table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+button.mat-icon-button {
+  margin: 0 4px;
+}
+
+button.mat-icon-button:hover {
+  opacity: 0.8;
+}
+
+
+
+
+/* Status Cell */
+.status-cell {
+  text-align: center; /* Center text horizontally */
+  vertical-align: middle; /* Center text vertically */
+}
+
+/* Status Styling */
+.status-red {
+  background-color: rgba(209, 14, 14, 0.87); /* Red background for "EN_ARRET" */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 200px;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.status-green {
+  background-color: rgba(21, 159, 77, 0.93); /* Green background for "DISPONIBLE" */
+  color: white;
+  padding: 5px 10px;
+  border-radius:200px;
+  font-size: 0.9em;
+  display: inline-block;
+}

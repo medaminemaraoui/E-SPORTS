@@ -1,0 +1,85 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<!--<ng-container *ngFor="let t of terrains; let index = index">-->
+<!--  <div *ngIf="authService.roles.includes('USER')"-->
+<!--       class="container p-5 my-5 text-white"-->
+<!--       [ngClass]="{-->
+<!--          'bg-dark': index % 3 === 0,-->
+<!--          'bg-primary': index % 3 === 1,-->
+<!--          'bg-orange': index % 3 === 2-->
+<!--       }">-->
+<!--    <h1>{{t.name}}</h1>-->
+<!--    <h2>{{t.type}} nbPerson max {{t.nbPersons}} </h2>-->
+<!--    <h2>{{t.status}}</h2>-->
+<!--    <p>{{t.ville}}</p>-->
+
+<!--    <button class="btn btn-success" (click)="getReserv(t)">Create Reservation</button>-->
+<!--  </div>-->
+<!--</ng-container>-->
+
+
+<div class="p-5"></div>
+
+<!-- Admin Toolbar -->
+<mat-toolbar *ngIf="authService.roles.includes('ADMIN')" class="admin-toolbar">
+  <button (click)="newTerrain()" mat-raised-button color="primary" class="new-terrain-btn">
+    <mat-icon>add</mat-icon> New Terrain
+  </button>
+</mat-toolbar>
+
+
+
+<!-- ------------ Start Table ------------------- -->
+<div class="container" *ngIf="authService.roles.includes('ADMIN')">
+  <table class="table" *ngIf="terrains">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>nbPerson</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of terrains">
+      <td>{{t.id}}</td>
+      <td>{{t.name}}</td>
+      <td>{{t.type}}</td>
+      <td>{{t.status}}</td>
+      <td>{{t.nbPersons}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ------------ Fin Table ------------------- -->
+
+
+
+<!-- Main Container -->
+<div class="container py-4">
+  <div class="terrain-grid">
+    <ng-container *ngFor="let t of terrains">
+      <!-- Terrain Card -->
+      <div *ngIf="authService.roles.includes('USER')"
+           class="terrain-card"
+           [ngClass]="getClassByType(t.type)">
+        <div class="card-body">
+          <h5 class="card-title">{{ t.name }}</h5>
+          <p class="card-text"><strong>Type:</strong> {{ t.type }}</p>
+          <p class="card-text"><strong>Capacity:</strong> {{ t.nbPersons }} Np max</p>
+          <p class="card-text"><strong>Status:</strong> {{ t.status }}</p>
+<!--          <p class="card-text"><strong>City:</strong> {{ t.ville }}</p>-->
+          <button class="reservation-btn" (click)="getReserv(t)">
+            <mat-icon>event</mat-icon> Show Reservation
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+

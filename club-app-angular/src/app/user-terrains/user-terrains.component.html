@@ -1,0 +1,82 @@
+<div class="p-4"></div>
+
+<!-- Main Container with Flexbox -->
+<div class="container d-flex">
+  <!-- Table Section -->
+  <div class="flex-grow-1 me-4">
+    <table class="styled-table" *ngIf="terrains">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Number of Persons</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of terrains">
+          <td>{{ t.id }}</td>
+          <td>{{ t.name }}</td>
+          <td>{{ t.type }}</td>
+          <td [ngClass]="{'status-red': t.status === 'EN_ARRET', 'status-green': t.status === 'DISPONIBLE'}" class="status-cell">
+            {{ t.status }}
+          </td>
+          <td>{{ t.nbPersons }}</td>
+          <td>
+         
+          
+                <button mat-button routerLink="/admin/calendar">
+                  <mat-icon class="me-2">account_circle</mat-icon>   Reserve Now</button>
+         
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Update Form Section -->
+  <div class="flex-shrink-0" style="width: 400px;" *ngIf="isUpdating">
+    <div class="table-container shadow-sm rounded p-4 bg-light">
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Name:</label>
+          <input id="name" formControlName="name" class="form-control" />
+        </div>
+
+        <!-- Type Field (Dropdown) -->
+        <div class="mb-3">
+          <label for="type" class="form-label">Type:</label>
+          <select id="type" formControlName="type" class="form-control">
+            <option value="Basketball">Basketball</option>
+            <option value="Tennis">Tennis</option>
+            <option value="Football">Football</option>
+          </select>
+        </div>
+
+        <!-- Status Field (Dropdown) -->
+        <div class="mb-3">
+          <label for="status" class="form-label">Status:</label>
+          <select id="status" formControlName="status" class="form-control">
+            <option value="DISPONIBLE">DISPONIBLE</option>
+            <option value="EN_ARRET">EN ARRET</option>
+          </select>
+        </div>
+
+        <!-- Number of Persons Field -->
+        <div class="mb-3">
+          <label for="nbPersons" class="form-label">Number of Persons:</label>
+          <input id="nbPersons" formControlName="nbPersons" class="form-control" />
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+          <button type="button" (click)="onCancel()" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

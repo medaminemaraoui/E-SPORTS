@@ -1,0 +1,161 @@
+/* Custom background color for the third terrain */
+.bg-orange {
+  background-color: #ff8c42; /* A custom orange color */
+}
+
+/* Admin Toolbar */
+.admin-toolbar {
+  background-color: rgba(2, 102, 145, 0.34); /* Primary color */
+  color: white;
+  padding: 12px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-terrain-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Terrain Grid */
+.terrain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 16px;
+}
+
+/* Terrain Card */
+.terrain-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.terrain-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 24px;
+  text-align: left;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(223, 220, 220, 0.47); /* Semi-transparent black overlay */
+
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 1.05rem;
+  font-family: 'Poppins', sans-serif;
+  color: #020000;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-text strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Reservation Button */
+.reservation-btn {
+  background-color: #046f9c; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.reservation-btn:hover {
+  background-color: #024867; /* Darker green */
+  transform: scale(1.02);
+}
+
+
+
+/*!* Dynamic Classes for Terrain Types *!*/
+/*.bg-football {*/
+/*  background-color: rgb(202, 56, 100); !* Vibrant green *!*/
+/*  color: white;*/
+/*}*/
+
+/*.bg-tennis {*/
+/*  background-color: rgb(4, 156, 98); !* Bright yellow *!*/
+/*  color: #333;*/
+/*}*/
+
+/*.bg-basketball {*/
+/*  background-color: rgb(211, 195, 4); !* Vibrant orange *!*/
+/*  color: white;*/
+/*}*/
+
+/*.bg-volleyball {*/
+/*  background-color: #026691; !* Light blue *!*/
+/*  color: white;*/
+/*}*/
+
+/*.bg-default {*/
+/*  background-color: #9e9e9e; !* Neutral gray *!*/
+/*  color: white;*/
+/*}*/
+
+
+/* Dynamic Classes for Terrain Types */
+.bg-football {
+  background-image: url('/assets/img/football.jpg'); /* Football image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.bg-tennis {
+  background-image: url('/assets/img/tennis.jpg'); /* Tennis image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.bg-basketball {
+  background-image: url('/assets/img/basketball.jpg'); /* Basketball image */
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+

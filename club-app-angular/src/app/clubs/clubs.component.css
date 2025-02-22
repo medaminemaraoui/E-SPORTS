@@ -1,0 +1,99 @@
+.bg-orange {
+  background-color: orange;
+}
+
+/* Club Card Styling */
+.club-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 20px;
+
+  height: 350px; /* Adjust this value to your desired height */
+  /*display: flex;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+}
+
+.club-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Background Images for Clubs */
+.bg-club-1 {
+  background-image: url('/assets/img/cityclub.jpg'); /* Image for first club */
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-club-2 {
+  background-image: url('/assets/img/kahrama.jpg'); /* Image for second club */
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-club-3 {
+  background-image: url('/assets/img/tennis.jpg'); /* Image for third club */
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-club-4 {
+  background-image: url('/assets/img/football.jpg'); /* Image for third club */
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Club Overlay */
+.club-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Text Styling */
+.club-overlay h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.club-overlay p {
+  font-size: 1.25rem;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+/* Button Styling */
+.club-overlay .btn {
+  background-color: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.club-overlay .btn:hover {
+  background-color: #388e3c; /* Darker green */
+  transform: scale(1.02);
+}

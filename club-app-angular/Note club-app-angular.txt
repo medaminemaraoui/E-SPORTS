@@ -1,0 +1,120 @@
+Note club-app-angular
+
+---------------------------------------------------------------------------------------
+---------------Install-----------------------------------------------------------------
+npm install --save bootstrap bootstrap-icons
+ng add @angular/material || theme --> "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+----------------------------------------------------------------------------------------------
+
+-------------Create component --------------
+ng new club-app-angular --no-standalone
+---------------------------------------------
+
+------------Html pages ------------------------------------------------------------------------------------
+formControlName="password" --> est c'elle qui recupere les donner du form ou le champs pwd dans notre exemple 
+
+
+---------------------------------------------------------------------------------------------------------
+----------------------- angular.json --------------------------------------------------------------------
+
+            "assets": [
+              "src/assets"
+            ],
+
+"styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css", --> pour Angular Template
+              "src/styles.css"
+	      "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js" --> pour bootstrap Template
+            ]
+---------------------------------------------------------------------------------------------------------
+
+
+
+*****************************************************************
+*****************************************************************
+** ng g c clubs
+
+** dans un premier temps en utilise -- http: HttpClient -- dans un constructeur
+
+** pour recuperer id 
+  constructor(private route: ActivatedRoute,)
+ {  this.code=route.snapshot.params['code'];}
+*****************************************************************
+
+
+----------------- PROBLEM Cors ---------------------
+https://youtu.be/iMCjDRUXoeM?t=1568
+----------------------------------------------------
+
+
+
+**********************************
+************ GIT *****************
+git add . 
+git commit -m "V3 show Tb Pagint"
+git branch -M main 
+git push -u origin main
+**********************************
+
+******************************************
+en remplace 
+private http: HttpClient ===
+
+
+**********************************
+***********     CALENDAR     *****************
+**ng g c calendar  
+**npm install --save @fullcalendar/core @fullcalendar/angular @fullcalendar/daygrid @fullcalendar/interaction
+**module ===  imports: [CommonModule, FullCalendarModule,]
+**component :
+
+import { CalendarOptions, EventInput } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { BehaviorSubject } from 'rxjs'; 
+
+-------------------
+export class CalendarComponent {
+
+showWeekends = true;
+  private eventsSubject = new BehaviorSubject<EventInput[]>([]); // Holds async events
+  eventsPromise = this.eventsSubject.asObservable();
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    plugins: [dayGridPlugin, interactionPlugin],
+    weekends: this.showWeekends,
+    editable: true,
+    selectable: true,
+    eventClick: this.handleEventClick.bind(this),
+    events: (fetchInfo, successCallback) => {
+      setTimeout(() => {
+        successCallback([
+          { title: 'T11', start: new Date(), color: '#007bff' },
+          { title: 'T12', start: new Date(), color: '#28a745' },
+          { title: 'T13', start: new Date(), color: '#dc3545' },
+        ]);
+      }, 1000); // Simulate async event fetch
+    }
+  };
+
+  toggleWeekends() {
+    this.showWeekends = !this.showWeekends;
+    this.calendarOptions = { ...this.calendarOptions, weekends: this.showWeekends };
+  }
+
+  handleEventClick(eventInfo: any) {
+    alert(`Event: ${eventInfo.event.title}`);
+  }
+}
+
+**html :
+<div class="calendar-container">
+    <button class="toggle-button" (click)="toggleWeekends()">Toggle Weekends</button>
+    <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
+
+
